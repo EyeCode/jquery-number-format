@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>JQuery Number Format</title>
+    </head>
+    <body>
+        <h1>Formatting Number with JQuery Plugin</h1>
+        <table cellspacing="0" cellpadding="5px" border="1">
+            <thead>
+                <tr>
+                    <th>Initial</th>
+                    <th>Options</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="from">1</td>
+                    <td class="options" data-suffix="$" data-digits="2"> prefix: none <br> suffix: $ <br> digits: 2</td>
+                    <td class="to"></td>
+                </tr>
+                <tr>
+                    <td class="from">2</td>
+                    <td class="options" data-prefix="$" data-digits="3"> prefix: $ <br> suffix: none <br> digits: 3</td>
+                    <td class="to"></td>
+                </tr>
+                <tr>
+                    <td class="from">3</td>
+                    <td class="options" data-prefix="$" data-suffix="$" data-digits="1"> prefix: $ <br> suffix: $ <br> digits: 1</td>
+                    <td class="to"></td>
+                </tr>
+                <tr>
+                    <td class="from">4.4444</td>
+                    <td class="options" data-digits="1"> prefix: none <br> suffix: none <br> digits: 1</td>
+                    <td class="to"></td>
+                </tr>
+                <tr>
+                    <td class="from">5.55555</td>
+                    <td class="options" data-digits="2"> prefix: none <br> suffix: none <br> digits: 2</td>
+                    <td class="to"></td>
+                </tr>
+
+                <tr>
+                    <td class="from">6.66666</td>
+                    <td class="options" data-digits="2" data-rounding="false"> prefix: none <br> suffix: none <br> digits: 2<br> rounding: false</td>
+                    <td class="to"></td>
+                </tr>
+            </tbody>
+        </table>
+        <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+        <script src="../jquery-number-format/jquery.number.format.js"></script>
+        <script>
+            (function($) {
+                $('tbody tr').each(function() {
+                    $(this).find('td.to').text(
+                        $.numberFormat($(this).find('td.from').text(), $(this).find('td.options').data())
+                    );
+                });
+            })(jQuery);
+        </script>
+    </body>
+</html>
