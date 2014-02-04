@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="javascripts/respond.js"></script>
+    <script src="javascripts/jquery.number.format.js"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -46,6 +47,50 @@
 <pre><code>$.numberFormat(target[, options]);
 </code></pre>
 
+<p>Exemple</p>
+<table id="exemple" cellspacing="0" cellpadding="5px" border="1">
+    <thead>
+        <tr>
+            <th>Initial</th>
+            <th>Options</th>
+            <th>Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="from">1</td>
+            <td class="options" data-suffix="$" data-digits="2"> prefix: none <br> suffix: $ <br> digits: 2</td>
+            <td class="to"></td>
+        </tr>
+        <tr>
+            <td class="from">2</td>
+            <td class="options" data-prefix="$" data-digits="3"> prefix: $ <br> suffix: none <br> digits: 3</td>
+            <td class="to"></td>
+        </tr>
+        <tr>
+            <td class="from">3</td>
+            <td class="options" data-prefix="$" data-suffix="$" data-digits="1"> prefix: $ <br> suffix: $ <br> digits: 1</td>
+            <td class="to"></td>
+        </tr>
+        <tr>
+            <td class="from">4.4444</td>
+            <td class="options" data-digits="1"> prefix: none <br> suffix: none <br> digits: 1</td>
+            <td class="to"></td>
+        </tr>
+        <tr>
+            <td class="from">5.55555</td>
+            <td class="options" data-digits="2"> prefix: none <br> suffix: none <br> digits: 2</td>
+            <td class="to"></td>
+        </tr>
+
+        <tr>
+            <td class="from">6.66666</td>
+            <td class="options" data-digits="2" data-rounding="false"> prefix: none <br> suffix: none <br> digits: 2<br> rounding: false</td>
+            <td class="to"></td>
+        </tr>
+    </tbody>
+</table>
+
 <h3>
 <a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
 
@@ -54,6 +99,16 @@
 
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
+
+      <script>
+        (function($) {
+            $('#exemple tbody tr').each(function() {
+                $(this).find('td.to').text(
+                    $.numberFormat($(this).find('td.from').text(), $(this).find('td.options').data())
+                );
+            });
+        })(jQuery);
+      </script>
+
   </body>
 </html>
