@@ -23,7 +23,7 @@
                 "jquery-number-format/jquery.number.format.js"
             ],
             "files": [
-                "jquery-number-format/*",
+                "jquery-number-format/*"
             ]
         }
     }

@@ -1,13 +1,13 @@
 {
-    name: "jquery number format",
-    version: "0.1",
-    description: "JQuery Format Number component",
-    keywords: [
+    "name": "jquery number format",
+    "version": "1.0",
+    "description": "JQuery Format Number component",
+    "keywords": [
         "format number",
         "rich text editor"
     ],
-    scripts: [
+    "scripts": [
         "jquery-format-number/jquery.format.number.js"
     ],
-    license: "MIT"
+    "license": "MIT"
 }
