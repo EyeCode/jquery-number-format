@@ -2,7 +2,7 @@ Jquery Number Format
 
 Plugin to format number with prefix / suffix / number of digits
 
-$.fn.numberFormat(numberToFormat [,{optional options}]);
+$.numberFormat(numberToFormat [,{optional options}]);
 
 optional options:
 
