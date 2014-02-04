@@ -1,0 +1,30 @@
+{
+    "name": "eyecode/jquery-number-format",
+    "description": "JQuery number format",
+    "type": "component",
+    "homepage": "https://github.com/EyeCode/jquery-number-format",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/EyeCode/jquery-number-format/issues",
+        "source": "https://github.com/EyeCode/jquery-number-format"
+    },
+    "authors": [
+        {
+            "name": "Alexandre Dionne",
+            "email": "programmeur@adionne.com"
+        }
+    ],
+    "require": {
+        "robloach/component-installer": "*"
+    },
+    "extra": {
+        "component": {
+            "scripts": [
+                "jquery-number-format/jquery.number.format.js"
+            ],
+            "files": [
+                "jquery-number-format/*",
+            ]
+        }
+    }
+}
