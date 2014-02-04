@@ -262,6 +262,12 @@ samp {
   font-size: 1em;
 }
 
+pre em {
+  color:#555;
+  font-size:0.85em;
+  font-style: normal
+}
+
 /*
  * 1. Addresses CSS quotes not supported in IE6/7
  * 2. Addresses quote property not supported in S4
