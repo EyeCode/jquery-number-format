@@ -44,8 +44,19 @@
 
 <p>Easy way to use it:</p>
 
-<pre><code>$.numberFormat(target[, options]);
-</code></pre>
+<pre>
+    <code>// $.numberFormat(source[, options]);</code>
+    <code>
+        // exemple: <br>
+        var result = $.numberFormat(5.5555555, {
+            prefix: '',
+            suffix: ' $',
+            digits: 2,
+            rounding: true
+        })
+        // result => 5.56 $
+    </code>
+</pre>
 
 <p>Exemple</p>
 <table id="exemple">
