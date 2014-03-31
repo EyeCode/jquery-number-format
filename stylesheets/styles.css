@@ -796,7 +796,7 @@ section {
   margin: 20px 0;
   margin-top: 70px;
 }
-section #title {
+section #title, section #foot {
   border: 0;
   outline: none;
   margin: 0 0 50px 0;
@@ -816,32 +816,32 @@ section #title p {
   font-size: 18px;
   text-align: center;
 }
-section #title .credits {
+section #foot .credits {
   font-size: 11px;
   font-family: 'OpenSansRegular', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
   color: #696969;
   margin-top: -10px;
 }
-section #title .credits.left {
+section #foot .credits.left {
   float: left;
 }
-section #title .credits.right {
+section #foot .credits.right {
   float: right;
 }
 
 @media print, screen and (max-width: 720px) {
-  #title .credits {
+  #foot .credits {
     display: block;
     width: 100%;
     line-height: 30px;
     text-align: center;
   }
-  #title .credits .left {
+  #foot .credits .left {
     float: none;
     display: block;
   }
-  #title .credits .right {
+  #foot .credits .right {
     float: none;
     display: block;
   }
