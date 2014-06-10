@@ -7,8 +7,9 @@
             suffix: '',
             digits: 2,
             digitSeparator: '.',
+            thousandSeparator: ',',
             rounding: true
-        }, settings, result,eNumber, nNumber, dNumber;
+        }, settings, result,eNumber, nNumber, dNumber, fNumber;
 
 
         settings = $.extend({}, true, defaults, options);
@@ -47,7 +48,20 @@
             settings.digitSeparator = '';
         }
 
-        return settings.prefix + nNumber + settings.digitSeparator + dNumber + settings.suffix;
+        fNumber = function(str) {
+            str += '';
+            var x = str.split('.'),
+                x1 = x[0],
+                x2 = x.length > 1 ? '.' + x[1] : '',
+                rgx = /(\d+)(\d{3})/;
+
+            while (rgx.test(x1)) {
+                x1 = x1.replace(rgx, '$1' + settings.thousandSeparator + '$2');
+            }
+            return x1 + x2;
+        }
+
+        return settings.prefix + fNumber(nNumber + settings.digitSeparator + dNumber) + settings.suffix;
     };
 
 })(jQuery);
