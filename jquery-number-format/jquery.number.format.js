@@ -9,10 +9,23 @@
             digitSeparator: '.',
             thousandSeparator: ',',
             rounding: true
-        }, settings, result,eNumber, nNumber, dNumber, fNumber;
+        },
+            settings, result,eNumber, nNumber, dNumber, fNumber,
+            locale = {
+                en_US: {},
+                es_US: {},
+                en_CA: {},
+                fr_CA: {
+                    digitSeparator: ',',
+                    thousandSeparator: ' '
+                }
+            };
 
-
-        settings = $.extend({}, true, defaults, options);
+        if (typeof options === "string") {
+            settings = $.extend({}, true, defaults, locale[options]);
+        } else {
+            settings = $.extend({}, true, defaults, options);
+        }
 
         target = target.toString();
 
