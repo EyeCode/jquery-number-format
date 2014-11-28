@@ -12,10 +12,10 @@
         },
             settings, result,eNumber, nNumber, dNumber, fNumber,
             locale = {
-                en_US: {},
-                es_US: {},
-                en_CA: {},
-                fr_CA: {
+                en_us: {},
+                es_us: {},
+                en_ca: {},
+                fr_ca: {
                     digitSeparator: ',',
                     thousandSeparator: ' '
                 }
@@ -27,9 +27,9 @@
             settings = $.extend({}, true, defaults, options);
         }
 
-        target = target.toString();
+        target = parseFloat(target);
 
-        eNumber = target.split(settings.digitSeparator);
+        eNumber = target.toString().split('.');
 
         nNumber = eNumber[0];
 
