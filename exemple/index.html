@@ -44,6 +44,18 @@
                     <td class="options" data-digits="2" data-rounding="false"> prefix: none <br> suffix: none <br> digits: 2<br> rounding: false</td>
                     <td class="to"></td>
                 </tr>
+
+                <tr>
+                    <td class="from">6.66666</td>
+                    <td class="local" data-local="fr"> fr</td>
+                    <td class="to"></td>
+                </tr>
+
+                <tr>
+                    <td class="from">6.66666</td>
+                    <td class="local" data-local="en"> en</td>
+                    <td class="to"></td>
+                </tr>
             </tbody>
         </table>
         <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
@@ -51,9 +63,14 @@
         <script>
             (function($) {
                 $('tbody tr').each(function() {
-                    $(this).find('td.to').text(
-                        $.numberFormat($(this).find('td.from').text(), $(this).find('td.options').data())
-                    );
+                    var to;
+
+                    if ($(this).find('td.options').length > 0) {
+                        to = $.numberFormat($(this).find('td.from').text(), $(this).find('td.options').data());
+                    } else if ($(this).find('td.local').length > 0) {
+                        to = $.numberFormat($(this).find('td.from').text(), $(this).find('td.local').data('local'));
+                    }
+                    $(this).find('td.to').text(to);
                 });
             })(jQuery);
         </script>

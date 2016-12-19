@@ -3,21 +3,25 @@
     $.numberFormat = function(target, options) {
 
         var defaults = {
-            prefix: '',
-            suffix: '',
-            digits: 2,
-            digitSeparator: '.',
-            thousandSeparator: ',',
-            rounding: true
-        },
+                prefix: '',
+                suffix: '',
+                digits: 2,
+                entryDigitSeparator: '.',
+                finalDigitSeparator: '.',
+                thousandSeparator: ',',
+                rounding: true
+            },
             settings, result,eNumber, nNumber, dNumber, fNumber,
             locale = {
-                en_us: {},
-                es_us: {},
-                en_ca: {},
-                fr_ca: {
-                    digitSeparator: ',',
-                    thousandSeparator: ' '
+                en: {
+                    entryDigitSeparator: '.',
+                    finalDigitSeparator: '.',
+                    prefix: '$ '
+                },
+                fr: {
+                    entryDigitSeparator: '.',
+                    finalDigitSeparator: ',',
+                    suffix: ' $'
                 }
             };
 
@@ -29,7 +33,7 @@
 
         target = parseFloat(target);
 
-        eNumber = target.toString().split('.');
+        eNumber = target.toString().split(settings.entryDigitSeparator);
 
         nNumber = eNumber[0];
 
@@ -44,7 +48,7 @@
             var newDigits = Math.round(parseFloat(target)*coef)/coef;
 
             newDigits = newDigits.toString();
-            exploding = newDigits.split(settings.digitSeparator);
+            exploding = newDigits.split(settings.entryDigitSeparator);
 
             dNumber = !isNaN(exploding[1]) ? exploding[1] : "0";
         }
@@ -74,7 +78,7 @@
             return x1 + x2;
         }
 
-        return settings.prefix + fNumber(nNumber + settings.digitSeparator + dNumber) + settings.suffix;
+        return settings.prefix + fNumber(nNumber + settings.finalDigitSeparator + dNumber) + settings.suffix;
     };
 
 })(jQuery);
